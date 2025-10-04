@@ -12,7 +12,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django_ratelimit.decorators import ratelimit
+# from django_ratelimit.decorators import ratelimit
 from django.utils import timezone
 import logging
 
@@ -31,7 +31,6 @@ class BasicAuthenticationView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
-    @ratelimit(key='ip', rate='5/m', method='POST')
     def post(self, request):
         """Authenticate using basic auth credentials."""
         serializer = BasicAuthSerializer(data=request.data)
@@ -82,7 +81,6 @@ class SessionLoginView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
-    @ratelimit(key='ip', rate='5/m', method='POST')
     def post(self, request):
         """Login using session authentication."""
         serializer = SessionLoginSerializer(data=request.data)
@@ -183,7 +181,6 @@ class JWTTokenView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
-    @ratelimit(key='ip', rate='5/m', method='POST')
     def post(self, request):
         """Generate JWT tokens."""
         serializer = JWTTokenSerializer(data=request.data)
@@ -239,7 +236,6 @@ class JWTRefreshView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
-    @ratelimit(key='ip', rate='10/m', method='POST')
     def post(self, request):
         """Refresh JWT tokens."""
         serializer = JWTRefreshSerializer(data=request.data)
@@ -317,7 +313,6 @@ class UserRegistrationView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
-    @ratelimit(key='ip', rate='3/m', method='POST')
     def post(self, request):
         """Register new user."""
         serializer = UserRegistrationSerializer(data=request.data)
