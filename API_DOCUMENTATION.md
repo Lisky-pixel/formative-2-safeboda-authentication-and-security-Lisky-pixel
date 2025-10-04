@@ -322,9 +322,307 @@ The system includes interactive API documentation available at:
 python test_auth.py
 ```
 
+## UAS (User Authentication Service) Endpoints
+
+### User Registration with Rwanda Integration
+```http
+POST /api/uas/register/
+Content-Type: application/json
+
+{
+    "username": "new_user",
+    "email": "user@example.com",
+    "phone_number": "+250788123456",
+    "password": "secure_password",
+    "password_confirm": "secure_password",
+    "first_name": "John",
+    "last_name": "Doe",
+    "national_id": "123456789012",
+    "district_id": 1,
+    "address": "Kigali, Rwanda",
+    "emergency_contact": "+250788654321",
+    "emergency_contact_name": "Jane Doe"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "User registered successfully",
+    "user": {
+        "id": "uuid",
+        "username": "new_user",
+        "email": "user@example.com",
+        "phone_number": "+250788123456",
+        "is_phone_verified": false,
+        "is_email_verified": false,
+        "is_active": true,
+        "date_joined": "2024-01-01T00:00:00Z",
+        "last_login": null,
+        "profile": {
+            "national_id": "123456789012",
+            "district": 1,
+            "district_name": "Gasabo",
+            "district_code": "GSB",
+            "address": "Kigali, Rwanda",
+            "emergency_contact": "+250788654321",
+            "emergency_contact_name": "Jane Doe",
+            "profile_completeness": 100,
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        },
+        "district_name": "Gasabo"
+    }
+}
+```
+
+### Phone Verification
+```http
+POST /api/uas/verify-phone/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "phone_number": "+250788123456"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Verification code sent to phone number",
+    "phone_number": "+250788123456",
+    "expires_in": 10
+}
+```
+
+### Phone Verification Confirmation
+```http
+POST /api/uas/verify-phone/confirm/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "code": "123456",
+    "phone_number": "+250788123456"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Phone number verified successfully",
+    "is_phone_verified": true
+}
+```
+
+### Email Verification
+```http
+POST /api/uas/verify-email/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "email": "user@example.com"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Verification code sent to email",
+    "email": "user@example.com",
+    "expires_in": 30
+}
+```
+
+### Email Verification Confirmation
+```http
+POST /api/uas/verify-email/confirm/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "code": "123456",
+    "email": "user@example.com"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Email address verified successfully",
+    "is_email_verified": true
+}
+```
+
+### Password Reset Request
+```http
+POST /api/uas/password-reset/
+Content-Type: application/json
+
+{
+    "email": "user@example.com"
+}
+```
+
+**Alternative methods:**
+```json
+{
+    "phone_number": "+250788123456"
+}
+```
+
+```json
+{
+    "national_id": "123456789012"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Password reset code sent to your email",
+    "expires_in": 30
+}
+```
+
+### Password Reset Confirmation
+```http
+POST /api/uas/password-reset/confirm/
+Content-Type: application/json
+
+{
+    "code": "123456",
+    "new_password": "new_secure_password",
+    "new_password_confirm": "new_secure_password"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Password reset successfully"
+}
+```
+
+### Account Status
+```http
+GET /api/uas/account/status/
+Authorization: Bearer your_access_token
+```
+
+**Response:**
+```json
+{
+    "id": "uuid",
+    "username": "username",
+    "email": "user@example.com",
+    "phone_number": "+250788123456",
+    "is_phone_verified": true,
+    "is_email_verified": true,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00Z",
+    "last_login": "2024-01-01T00:00:00Z",
+    "profile": {
+        "national_id": "123456789012",
+        "district": 1,
+        "district_name": "Gasabo",
+        "district_code": "GSB",
+        "address": "Kigali, Rwanda",
+        "emergency_contact": "+250788654321",
+        "emergency_contact_name": "Jane Doe",
+        "profile_completeness": 100,
+        "created_at": "2024-01-01T00:00:00Z",
+        "updated_at": "2024-01-01T00:00:00Z"
+    },
+    "district_name": "Gasabo"
+}
+```
+
+### Account Recovery
+```http
+POST /api/uas/account/recover/
+Content-Type: application/json
+
+{
+    "recovery_method": "phone",
+    "recovery_value": "+250788123456"
+}
+```
+
+**Alternative methods:**
+```json
+{
+    "recovery_method": "email",
+    "recovery_value": "user@example.com"
+}
+```
+
+```json
+{
+    "recovery_method": "national_id",
+    "recovery_value": "123456789012"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Account recovery code sent to your phone number",
+    "recovery_id": "uuid",
+    "expires_in": 30
+}
+```
+
+### Rwanda Districts
+```http
+GET /api/uas/districts/
+```
+
+**Response:**
+```json
+{
+    "districts": [
+        {
+            "id": 1,
+            "name": "Gasabo",
+            "code": "GSB",
+            "province": "Kigali City",
+            "is_active": true
+        },
+        {
+            "id": 2,
+            "name": "Nyarugenge",
+            "code": "NYG",
+            "province": "Kigali City",
+            "is_active": true
+        }
+    ],
+    "total": 29
+}
+```
+
+## Rwanda-Specific Features
+
+### National ID Validation
+- **Format**: 12 digits
+- **Validation**: Birth year extraction and age calculation
+- **Integration**: Automatic profile completion tracking
+
+### District Integration
+- **29 Rwanda districts** available for registration
+- **Province-based organization** (Kigali City, Northern, Eastern, Southern, Western)
+- **Active/inactive status** management
+
+### Phone Number Validation
+- **Rwanda format**: +250XXXXXXXXX
+- **SMS verification** (design implementation)
+- **International support** for tourists
+
 ## Implementation Status
 
-### ✅ Completed (Task 1)
+### ✅ Completed (Task 1 & 2)
 - [x] Basic Authentication endpoint
 - [x] Session Authentication endpoints
 - [x] JWT Authentication endpoints
@@ -333,9 +631,15 @@ python test_auth.py
 - [x] Account lockout protection
 - [x] Password validation
 - [x] OpenAPI documentation
+- [x] **UAS User Registration with Rwanda integration**
+- [x] **Rwanda National ID validation**
+- [x] **SMS/Email verification system**
+- [x] **Password reset functionality**
+- [x] **Account recovery procedures**
+- [x] **Rwanda districts integration**
+- [x] **Profile completeness tracking**
 
 ### 🔄 In Progress
-- [ ] Task 2: User Authentication Service (UAS)
 - [ ] Task 3: Personal Data Protection & Compliance
 - [ ] Task 4: Role-Based Access Control
 

@@ -96,8 +96,9 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             'emergency_contact_name': validated_data.pop('emergency_contact_name', ''),
         }
         
-        # Remove password_confirm
-        validated_data.pop('password_confirm')
+        # Remove password_confirm and district_id (not part of User model)
+        validated_data.pop('password_confirm', None)
+        validated_data.pop('district_id', None)
         
         # Create user
         user = User.objects.create_user(**validated_data)
