@@ -246,3 +246,6 @@ LOGGING = {
 
 # Create logs directory
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
+
+# Custom User Model
+AUTH_USER_MODEL = 'authentication.User'
