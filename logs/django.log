@@ -1,3 +1,10 @@
 INFO 2025-10-05 00:23:38,712 autoreload 24780 27848 Watching for file changes with StatReloader
 INFO 2025-10-05 00:25:43,288 autoreload 24780 27848 C:\Users\USER\OneDrive\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\safeboda_auth\settings.py changed, reloading.
 INFO 2025-10-05 00:25:43,815 autoreload 6024 28604 Watching for file changes with StatReloader
+INFO 2025-10-05 00:27:40,245 autoreload 30764 3148 Watching for file changes with StatReloader
+WARNING 2025-10-05 00:27:44,982 log 30764 19184 Not Found: /
+WARNING 2025-10-05 00:27:44,983 basehttp 30764 19184 "GET / HTTP/1.1" 404 2882
+WARNING 2025-10-05 00:27:46,090 log 30764 16468 Not Found: /favicon.ico
+WARNING 2025-10-05 00:27:46,091 basehttp 30764 16468 "GET /favicon.ico HTTP/1.1" 404 2933
+INFO 2025-10-05 00:28:12,554 basehttp 30764 25260 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-05 00:28:12,840 basehttp 30764 25260 "GET /api/schema/ HTTP/1.1" 200 8873
