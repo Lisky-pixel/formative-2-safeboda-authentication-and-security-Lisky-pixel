@@ -196,9 +196,8 @@ CACHES = {
     }
 }
 
-# Rate Limiting
-RATELIMIT_USE_CACHE = 'default'
-RATELIMIT_ENABLE = True
+# Rate Limiting (disabled for development)
+RATELIMIT_ENABLE = False
 
 # API Documentation
 SPECTACULAR_SETTINGS = {
