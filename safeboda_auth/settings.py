@@ -188,6 +188,14 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
 }
 
+# Cache Configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table',
+    }
+}
+
 # Rate Limiting
 RATELIMIT_USE_CACHE = 'default'
 RATELIMIT_ENABLE = True
