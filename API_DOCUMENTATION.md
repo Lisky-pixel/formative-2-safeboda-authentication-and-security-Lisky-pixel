@@ -620,9 +620,338 @@ GET /api/uas/districts/
 - **SMS verification** (design implementation)
 - **International support** for tourists
 
+## Privacy and Data Protection Endpoints (Task 3)
+
+### Data Export (GDPR Right to Data Portability)
+```http
+GET /api/privacy/data-export/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "user_info": {
+        "id": "uuid",
+        "username": "username",
+        "email": "user@example.com",
+        "phone_number": "+250788123456",
+        "first_name": "John",
+        "last_name": "Doe",
+        "date_joined": "2024-01-01T00:00:00Z",
+        "last_login": "2024-01-01T00:00:00Z",
+        "is_active": true,
+        "is_phone_verified": true,
+        "is_email_verified": true
+    },
+    "profile_data": {
+        "national_id": "123456789012",
+        "district": "Gasabo",
+        "address": "Kigali, Rwanda",
+        "emergency_contact": "+250788654321",
+        "emergency_contact_name": "Jane Doe",
+        "profile_completeness": 100,
+        "created_at": "2024-01-01T00:00:00Z",
+        "updated_at": "2024-01-01T00:00:00Z"
+    },
+    "consent_data": [
+        {
+            "consent_type": "Analytics and Performance",
+            "category": "analytics",
+            "status": "granted",
+            "granted_at": "2024-01-01T00:00:00Z",
+            "expires_at": "2025-01-01T00:00:00Z",
+            "version": "1.0"
+        }
+    ],
+    "privacy_settings": {
+        "allow_data_sharing": false,
+        "allow_analytics": true,
+        "allow_marketing": false,
+        "allow_location_tracking": true,
+        "email_notifications": true,
+        "sms_notifications": false,
+        "push_notifications": true,
+        "notify_on_data_access": true,
+        "monthly_privacy_report": true
+    },
+    "access_logs": [
+        {
+            "access_type": "read",
+            "data_category": "personal_info",
+            "purpose": "Data portability request",
+            "timestamp": "2024-01-01T00:00:00Z",
+            "accessed_by": "System"
+        }
+    ],
+    "export_metadata": {
+        "export_date": "2024-01-01T00:00:00Z",
+        "request_id": "uuid",
+        "format": "json",
+        "expires_at": "2024-01-31T00:00:00Z"
+    }
+}
+```
+
+### Data Deletion (GDPR Right to be Forgotten)
+```http
+DELETE /api/privacy/data-deletion/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "request_type": "full_deletion",
+    "data_types": ["user_profile", "contact_info"],
+    "reason": "Privacy concerns"
+}
+```
+
+**Alternative request types:**
+```json
+{
+    "request_type": "partial_deletion",
+    "data_types": ["location_data", "analytics_data"],
+    "reason": "Remove specific data only"
+}
+```
+
+```json
+{
+    "request_type": "anonymization",
+    "data_types": ["user_profile"],
+    "reason": "Keep data but remove personal identifiers"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Data deletion request submitted successfully",
+    "request_id": "uuid",
+    "status": "completed"
+}
+```
+
+### Audit Log (Personal Data Access Log)
+```http
+GET /api/privacy/audit-log/?days=30&access_type=read
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "logs": [
+        {
+            "id": "uuid",
+            "user": "uuid",
+            "user_username": "username",
+            "accessed_by": "uuid",
+            "accessed_by_username": "admin",
+            "access_type": "read",
+            "data_category": "personal_info",
+            "data_fields": ["username", "email"],
+            "purpose": "Administrative access",
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla/5.0...",
+            "timestamp": "2024-01-01T00:00:00Z",
+            "retention_until": "2031-01-01T00:00:00Z"
+        }
+    ],
+    "total": 25,
+    "period_days": 30,
+    "access_type_filter": "read"
+}
+```
+
+### Consent Management
+```http
+GET /api/privacy/consent/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "consent_status": [
+        {
+            "consent_type_id": "uuid",
+            "consent_type_name": "Analytics and Performance",
+            "consent_type_category": "analytics",
+            "status": "granted",
+            "is_valid": true,
+            "granted_at": "2024-01-01T00:00:00Z",
+            "expires_at": "2025-01-01T00:00:00Z"
+        },
+        {
+            "consent_type_id": "uuid",
+            "consent_type_name": "Marketing Communications",
+            "consent_type_category": "marketing",
+            "status": "denied",
+            "is_valid": false,
+            "granted_at": null,
+            "expires_at": null
+        }
+    ],
+    "total_consent_types": 7
+}
+```
+
+**Update Consent:**
+```http
+POST /api/privacy/consent/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "consent_type_id": "uuid",
+    "status": "granted"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Consent granted successfully",
+    "consent_type": "Analytics and Performance",
+    "status": "granted"
+}
+```
+
+### Data Anonymization
+```http
+POST /api/privacy/anonymize/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "data_types": ["user_profile", "contact_info"],
+    "anonymization_method": "pseudonymization",
+    "reason": "Privacy protection"
+}
+```
+
+**Available anonymization methods:**
+- `pseudonymization`: Replace with pseudonyms
+- `generalization`: Replace with general categories
+- `suppression`: Remove specific fields
+- `randomization`: Randomize data values
+
+**Response (Success):**
+```json
+{
+    "message": "Data anonymization completed successfully",
+    "anonymization_method": "pseudonymization",
+    "anonymized_data": {
+        "basic_info": true,
+        "contact_info": true,
+        "profile_data": true
+    },
+    "reason": "Privacy protection"
+}
+```
+
+### Data Retention Policy Information
+```http
+GET /api/privacy/retention-policy/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "retention_policies": [
+        {
+            "data_type": "user_profile",
+            "retention_period_days": 2555,
+            "retention_basis": "legal_requirement",
+            "description": "User profile data retained for legal compliance and audit purposes.",
+            "auto_delete": false,
+            "requires_consent": true
+        },
+        {
+            "data_type": "contact_info",
+            "retention_period_days": 365,
+            "retention_basis": "business_necessity",
+            "description": "Contact information retained for service delivery and communication.",
+            "auto_delete": true,
+            "requires_consent": true
+        }
+    ],
+    "total_policies": 7,
+    "note": "These policies define how long your data is retained and under what legal basis."
+}
+```
+
+### Privacy Settings
+```http
+GET /api/privacy/settings/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "id": "uuid",
+    "user": "uuid",
+    "user_username": "username",
+    "allow_data_sharing": false,
+    "allow_analytics": true,
+    "allow_marketing": false,
+    "allow_location_tracking": true,
+    "email_notifications": true,
+    "sms_notifications": false,
+    "push_notifications": true,
+    "auto_delete_after_inactivity": false,
+    "inactivity_period_days": 365,
+    "notify_on_data_access": true,
+    "monthly_privacy_report": true,
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z"
+}
+```
+
+**Update Privacy Settings:**
+```http
+PUT /api/privacy/settings/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "allow_data_sharing": true,
+    "allow_analytics": false,
+    "email_notifications": false
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Privacy settings updated successfully",
+    "settings": {
+        "id": "uuid",
+        "user": "uuid",
+        "user_username": "username",
+        "allow_data_sharing": true,
+        "allow_analytics": false,
+        "allow_marketing": false,
+        "allow_location_tracking": true,
+        "email_notifications": false,
+        "sms_notifications": false,
+        "push_notifications": true,
+        "auto_delete_after_inactivity": false,
+        "inactivity_period_days": 365,
+        "notify_on_data_access": true,
+        "monthly_privacy_report": true,
+        "created_at": "2024-01-01T00:00:00Z",
+        "updated_at": "2024-01-01T00:00:00Z"
+    }
+}
+```
+
 ## Implementation Status
 
-### ✅ Completed (Task 1 & 2)
+### ✅ Completed (Task 1, 2 & 3)
 - [x] Basic Authentication endpoint
 - [x] Session Authentication endpoints
 - [x] JWT Authentication endpoints
@@ -638,18 +967,23 @@ GET /api/uas/districts/
 - [x] **Account recovery procedures**
 - [x] **Rwanda districts integration**
 - [x] **Profile completeness tracking**
+- [x] **Data Export functionality (GDPR Right to Data Portability)**
+- [x] **Data Deletion functionality (GDPR Right to be Forgotten)**
+- [x] **Comprehensive Audit Logging (GDPR Article 30)**
+- [x] **Consent Management System**
+- [x] **Data Anonymization Features**
+- [x] **Data Retention Policy Management**
+- [x] **Privacy Settings Management**
+- [x] **Field-level Data Encryption**
 
 ### 🔄 In Progress
-- [ ] Task 3: Personal Data Protection & Compliance
 - [ ] Task 4: Role-Based Access Control
 
 ## Next Steps
 
-1. **Task 2**: Implement UAS with Rwanda National ID integration
-2. **Task 3**: Add GDPR-style data protection features
-3. **Task 4**: Implement role-based access control
-4. **Testing**: Comprehensive security testing
-5. **Documentation**: Complete API documentation
+1. **Task 4**: Implement role-based access control
+2. **Testing**: Comprehensive security testing
+3. **Documentation**: Complete API documentation
 
 ## Security Considerations
 
