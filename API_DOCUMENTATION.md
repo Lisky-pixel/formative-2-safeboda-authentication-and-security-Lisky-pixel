@@ -949,9 +949,386 @@ Content-Type: application/json
 }
 ```
 
+## Role-Based Access Control Endpoints (Task 4)
+
+### List Available Roles
+```http
+GET /api/rbac/roles/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "roles": [
+        {
+            "id": "uuid",
+            "name": "Administrator",
+            "codename": "admin",
+            "role_type": "admin",
+            "description": "System administrator with management permissions",
+            "hierarchy_level": 2,
+            "is_system_role": true,
+            "is_active": true,
+            "permissions_count": 15,
+            "created_by_username": null,
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    ],
+    "total": 8
+}
+```
+
+### Assign Role to User
+```http
+POST /api/rbac/assign-role/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "user_id": "user_uuid",
+    "role_id": "role_uuid",
+    "expires_at": "2024-12-31T23:59:59Z",
+    "reason": "Administrative access granted"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Role assigned successfully",
+    "user_role": {
+        "id": "uuid",
+        "user": "user_uuid",
+        "role": "role_uuid",
+        "role_name": "Administrator",
+        "role_codename": "admin",
+        "role_type": "admin",
+        "assigned_by": "admin_uuid",
+        "assigned_by_username": "superadmin",
+        "status": "active",
+        "assigned_at": "2024-01-01T00:00:00Z",
+        "expires_at": "2024-12-31T23:59:59Z",
+        "reason": "Administrative access granted",
+        "is_active": true,
+        "is_valid": true
+    }
+}
+```
+
+### List User Permissions
+```http
+GET /api/rbac/permissions/?user_id=user_uuid
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "user_id": "uuid",
+    "username": "username",
+    "roles": [
+        {
+            "role_id": "uuid",
+            "role_name": "Administrator",
+            "role_type": "admin",
+            "hierarchy_level": 2,
+            "permissions": [
+                {
+                    "id": "uuid",
+                    "name": "Manage Users",
+                    "codename": "manage_users",
+                    "category": "user_management",
+                    "description": "Create, update, and delete user accounts",
+                    "resource_type": "user",
+                    "action": "write",
+                    "is_system_permission": false,
+                    "is_active": true
+                }
+            ]
+        }
+    ],
+    "permissions": ["manage_users", "view_users", "assign_roles"],
+    "hierarchy_level": 2,
+    "can_access_driver_earnings": true,
+    "can_manage_users": true,
+    "can_access_government_data": false
+}
+```
+
+### Administrative User Management
+```http
+GET /api/rbac/admin/users/?search=john&role_type=driver&is_active=true
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "count": 25,
+    "next": "http://localhost:8000/api/rbac/admin/users/?page=2",
+    "previous": null,
+    "results": {
+        "users": [
+            {
+                "id": "uuid",
+                "username": "john_doe",
+                "email": "john@example.com",
+                "first_name": "John",
+                "last_name": "Doe",
+                "phone_number": "+250788123456",
+                "is_active": true,
+                "is_phone_verified": true,
+                "is_email_verified": true,
+                "date_joined": "2024-01-01T00:00:00Z",
+                "last_login": "2024-01-15T10:30:00Z",
+                "last_login_display": "2024-01-15 10:30:00",
+                "profile_completeness": 85,
+                "user_roles": [
+                    {
+                        "id": "uuid",
+                        "role_name": "Driver",
+                        "role_codename": "driver",
+                        "role_type": "driver",
+                        "status": "active",
+                        "assigned_at": "2024-01-01T00:00:00Z",
+                        "is_valid": true
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+### Government Data Access Request
+```http
+POST /api/rbac/government/access-request/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "government_agency": "Rwanda Utilities Regulatory Authority",
+    "official_title": "Regulatory Officer",
+    "official_id": "RURA-001",
+    "request_type": "user_data",
+    "purpose": "Regulatory compliance review",
+    "legal_basis": "Rwanda Data Protection Law Article 15",
+    "data_categories": ["user_profile", "contact_info", "usage_data"],
+    "specific_users": [],
+    "date_range_start": "2024-01-01T00:00:00Z",
+    "date_range_end": "2024-01-31T23:59:59Z"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Government access request submitted successfully",
+    "request_id": "uuid",
+    "status": "pending"
+}
+```
+
+### Government Access Request Approval
+```http
+POST /api/rbac/government/access-request/{request_id}/approve/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Government access request approved",
+    "access_granted_until": "2024-02-01T00:00:00Z"
+}
+```
+
+### Permission Audit Log
+```http
+GET /api/rbac/audit/permissions/?action_type=role_assigned&user_id=user_uuid&days=30
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "logs": [
+        {
+            "id": "uuid",
+            "user": "user_uuid",
+            "user_username": "admin",
+            "target_user": "target_uuid",
+            "target_user_username": "john_doe",
+            "action_type": "role_assigned",
+            "resource_type": "user_role",
+            "resource_id": "uuid",
+            "role": "role_uuid",
+            "role_name": "Driver",
+            "permission": null,
+            "permission_name": null,
+            "details": {
+                "role_name": "Driver",
+                "created": true,
+                "reason": "Administrative access granted"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla/5.0...",
+            "timestamp": "2024-01-01T00:00:00Z"
+        }
+    ],
+    "total": 15,
+    "period_days": 30,
+    "filters": {
+        "action_type": "role_assigned",
+        "user_id": "user_uuid"
+    }
+}
+```
+
+### Create Custom Role (Super Admin Only)
+```http
+POST /api/rbac/create-role/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "name": "Custom Manager Role",
+    "codename": "custom_manager",
+    "role_type": "admin",
+    "description": "Custom role for department managers",
+    "hierarchy_level": 2,
+    "permission_ids": ["permission_uuid_1", "permission_uuid_2"]
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Role created successfully",
+    "role": {
+        "id": "uuid",
+        "name": "Custom Manager Role",
+        "codename": "custom_manager",
+        "role_type": "admin",
+        "description": "Custom role for department managers",
+        "hierarchy_level": 2,
+        "is_system_role": false,
+        "is_active": true,
+        "permissions_count": 2,
+        "created_by_username": "superadmin",
+        "created_at": "2024-01-01T00:00:00Z",
+        "updated_at": "2024-01-01T00:00:00Z"
+    }
+}
+```
+
+### Check User Permission
+```http
+POST /api/rbac/check-permission/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "user_id": "user_uuid",
+    "permission_codename": "manage_users",
+    "resource_type": "user",
+    "resource_id": "target_user_uuid"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "user_id": "user_uuid",
+    "permission": "manage_users",
+    "has_permission": true,
+    "resource_type": "user",
+    "resource_id": "target_user_uuid"
+}
+```
+
+### Bulk Role Assignment
+```http
+POST /api/rbac/bulk-assign-roles/
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+    "user_ids": ["user_uuid_1", "user_uuid_2", "user_uuid_3"],
+    "role_id": "role_uuid",
+    "expires_at": "2024-12-31T23:59:59Z",
+    "reason": "Department restructuring"
+}
+```
+
+**Response (Success):**
+```json
+{
+    "message": "Bulk role assignment completed",
+    "assigned_users": [
+        {
+            "user_id": "user_uuid_1",
+            "username": "john_doe",
+            "created": true
+        },
+        {
+            "user_id": "user_uuid_2",
+            "username": "jane_smith",
+            "created": false
+        }
+    ],
+    "failed_users": [
+        {
+            "user_id": "user_uuid_3",
+            "error": "User not found"
+        }
+    ],
+    "total_assigned": 2,
+    "total_failed": 1
+}
+```
+
+### Driver Earnings Protection (Protected Access)
+```http
+GET /api/rbac/driver-earnings/{driver_id}/
+Authorization: Bearer your_access_token
+```
+
+**Response (Success):**
+```json
+{
+    "driver_id": "driver_uuid",
+    "driver_username": "driver_john",
+    "access_granted_by": "admin_user",
+    "access_timestamp": "2024-01-01T10:30:00Z",
+    "earnings_summary": {
+        "total_earnings": 125000,
+        "rides_completed": 45,
+        "average_per_ride": 2778,
+        "period": "last_30_days"
+    },
+    "access_count": 3
+}
+```
+
+## RBAC Role Hierarchy
+
+The system implements a role hierarchy with the following levels:
+
+1. **Super Administrator (Level 3)**: Full system access, can create roles, approve government requests
+2. **Administrator (Level 2)**: User management, role assignment, system administration
+3. **Government Official (Level 2)**: Regulatory access, government data requests
+4. **Auditor (Level 2)**: Audit logs, compliance monitoring
+5. **Data Analyst (Level 2)**: Analytics access, reporting
+6. **Support Agent (Level 1)**: Customer support, user assistance
+7. **Driver (Level 1)**: Driver-specific permissions, ride management
+8. **Passenger (Level 0)**: Basic user permissions
+
 ## Implementation Status
 
-### ✅ Completed (Task 1, 2 & 3)
+### ✅ Completed (All Tasks 1, 2, 3 & 4)
 - [x] Basic Authentication endpoint
 - [x] Session Authentication endpoints
 - [x] JWT Authentication endpoints
@@ -975,15 +1352,49 @@ Content-Type: application/json
 - [x] **Data Retention Policy Management**
 - [x] **Privacy Settings Management**
 - [x] **Field-level Data Encryption**
+- [x] **Flexible Role and Permission System**
+- [x] **Role Hierarchy Implementation**
+- [x] **Government Data Access Controls**
+- [x] **Administrative Interface APIs**
+- [x] **Permission Audit Logging System**
+- [x] **Driver Earnings Privacy Protection**
+- [x] **Access Control Middleware**
 
-### 🔄 In Progress
-- [ ] Task 4: Role-Based Access Control
+### 🎉 **ALL TASKS COMPLETED!**
+
+## Final System Features
+
+Your SafeBoda Authentication and Security system now includes:
+
+1. **Multi-Method Authentication** (Task 1)
+   - Basic, Session, and JWT authentication
+   - Security logging and rate limiting
+   - Account lockout protection
+
+2. **User Authentication Service** (Task 2)
+   - Rwanda National ID integration
+   - SMS/Email verification
+   - Multi-step registration process
+   - Account recovery procedures
+
+3. **Personal Data Protection & Compliance** (Task 3)
+   - GDPR-style data protection
+   - Consent management
+   - Data export and deletion
+   - Comprehensive audit logging
+
+4. **Role-Based Access Control** (Task 4)
+   - Flexible permission system
+   - Government access controls
+   - Administrative oversight
+   - Driver earnings protection
 
 ## Next Steps
 
-1. **Task 4**: Implement role-based access control
-2. **Testing**: Comprehensive security testing
-3. **Documentation**: Complete API documentation
+1. **Database Migration**: Run migrations to create RBAC tables
+2. **Data Population**: Populate RBAC permissions and roles
+3. **Testing**: Run comprehensive test suites
+4. **Production Deployment**: Deploy with security configurations
 
 ## Security Considerations
 
