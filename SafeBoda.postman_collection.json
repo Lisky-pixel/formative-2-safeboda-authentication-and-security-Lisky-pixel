@@ -1,0 +1,202 @@
+{
+  "info": {
+    "name": "SafeBoda Authentication & Security",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Clean collection without examples/scripts. Flow: Auth → UAS → Privacy. Variables: baseUrl, access, refresh."
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "description": "Core authentication.",
+      "item": [
+        {
+          "name": "Register (Public)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/auth/register/", "host": ["{{baseUrl}}"], "path": ["api","auth","register",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"oluchi\",\n  \"email\": \"oluchi@example.com\",\n  \"phone_number\": \"+250788000111\",\n  \"password\": \"Password123!\",\n  \"password_confirm\": \"Password123!\",\n  \"first_name\": \"Oluchi\",\n  \"last_name\": \"Okafor\"\n}" }
+          }
+        },
+        {
+          "name": "Session Login (Public)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/auth/session/login/", "host": ["{{baseUrl}}"], "path": ["api","auth","session","login",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"oluchi\",\n  \"password\": \"Password123!\",\n  \"remember_me\": false\n}" }
+          }
+        },
+        {
+          "name": "Session Logout (Cookie)",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "{{baseUrl}}/api/auth/session/logout/", "host": ["{{baseUrl}}"], "path": ["api","auth","session","logout",""] }
+          }
+        },
+        {
+          "name": "JWT Token (Public)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/auth/jwt-token/", "host": ["{{baseUrl}}"], "path": ["api","auth","jwt-token",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"oluchi\",\n  \"password\": \"Password123!\"\n}" }
+          }
+        },
+        {
+          "name": "JWT Verify (Bearer {{access}})",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ],
+            "url": { "raw": "{{baseUrl}}/api/auth/jwt/verify/", "host": ["{{baseUrl}}"], "path": ["api","auth","jwt","verify",""] }
+          }
+        },
+        {
+          "name": "JWT Refresh (Public)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/auth/jwt/refresh/", "host": ["{{baseUrl}}"], "path": ["api","auth","jwt","refresh",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"refresh\": \"{{refresh}}\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "UAS",
+      "description": "User Authentication Service (Rwanda-specific).",
+      "item": [
+        {
+          "name": "Register (UAS) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/register/", "host": ["{{baseUrl}}"], "path": ["api","uas","register",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"rwandauser1\",\n  \"email\": \"rwanda1@example.com\",\n  \"phone_number\": \"+250788000222\",\n  \"password\": \"Password123!\",\n  \"password_confirm\": \"Password123!\",\n  \"first_name\": \"Aline\",\n  \"last_name\": \"Uwase\",\n  \"national_id\": \"021234567890\",\n  \"district_id\": 1\n}" }
+          }
+        },
+        {
+          "name": "Verify Phone (Send Code) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/verify-phone/", "host": ["{{baseUrl}}"], "path": ["api","uas","verify-phone",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"phone_number\": \"+250788000222\"\n}" }
+          }
+        },
+        {
+          "name": "Verify Phone (Confirm) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/verify-phone/confirm/", "host": ["{{baseUrl}}"], "path": ["api","uas","verify-phone","confirm",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"phone_number\": \"+250788000222\",\n  \"code\": \"123456\"\n}" }
+          }
+        },
+        {
+          "name": "Verify Email (Send Code) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/verify-email/", "host": ["{{baseUrl}}"], "path": ["api","uas","verify-email",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"rwanda1@example.com\"\n}" }
+          }
+        },
+        {
+          "name": "Verify Email (Confirm) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/verify-email/confirm/", "host": ["{{baseUrl}}"], "path": ["api","uas","verify-email","confirm",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"rwanda1@example.com\",\n  \"code\": \"123456\"\n}" }
+          }
+        },
+        {
+          "name": "Password Reset (Request) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/password-reset/", "host": ["{{baseUrl}}"], "path": ["api","uas","password-reset",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"rwanda1@example.com\"\n}" }
+          }
+        },
+        {
+          "name": "Password Reset (Confirm) Public",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/password-reset/confirm/", "host": ["{{baseUrl}}"], "path": ["api","uas","password-reset","confirm",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"token\": \"<reset_token>\",\n  \"new_password\": \"Password123!\"\n}" }
+          }
+        },
+        {
+          "name": "Account Status (Auth optional)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/uas/account/status/", "host": ["{{baseUrl}}"], "path": ["api","uas","account","status",""] }
+          }
+        },
+        {
+          "name": "Account Recovery (Public)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/api/uas/account/recover/", "host": ["{{baseUrl}}"], "path": ["api","uas","account","recover",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"method\": \"phone\",\n  \"value\": \"+250788000222\"\n}" }
+          }
+        },
+        {
+          "name": "Rwanda Districts (Public)",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/uas/districts/", "host": ["{{baseUrl}}"], "path": ["api","uas","districts",""] } }
+        }
+      ]
+    },
+    {
+      "name": "Privacy (Bearer)",
+      "description": "Protected privacy endpoints. Set {{access}} from JWT Token response.",
+      "item": [
+        {
+          "name": "Data Export (GET)",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/data-export/", "host": ["{{baseUrl}}"], "path": ["api","privacy","data-export",""] } }
+        },
+        {
+          "name": "Data Deletion (DELETE)",
+          "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" }, { "key": "Content-Type", "value": "application/json" } ], "url": { "raw": "{{baseUrl}}/api/privacy/data-deletion/", "host": ["{{baseUrl}}"], "path": ["api","privacy","data-deletion",""] }, "body": { "mode": "raw", "raw": "{}" } }
+        },
+        {
+          "name": "Audit Log (GET)",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/audit-log/", "host": ["{{baseUrl}}"], "path": ["api","privacy","audit-log",""] } }
+        },
+        {
+          "name": "Consent (GET)",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/consent/", "host": ["{{baseUrl}}"], "path": ["api","privacy","consent",""] } }
+        },
+        {
+          "name": "Consent (POST)",
+          "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" }, { "key": "Content-Type", "value": "application/json" } ], "url": { "raw": "{{baseUrl}}/api/privacy/consent/", "host": ["{{baseUrl}}"], "path": ["api","privacy","consent",""] }, "body": { "mode": "raw", "raw": "{\n  \"preferences\": {\n    \"marketing\": false,\n    \"analytics\": true\n  }\n}" } }
+        },
+        {
+          "name": "Anonymize (POST)",
+          "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/anonymize/", "host": ["{{baseUrl}}"], "path": ["api","privacy","anonymize",""] } }
+        },
+        {
+          "name": "Retention Policy (GET)",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/retention-policy/", "host": ["{{baseUrl}}"], "path": ["api","privacy","retention-policy",""] } }
+        },
+        {
+          "name": "Privacy Settings (GET)",
+          "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ], "url": { "raw": "{{baseUrl}}/api/privacy/settings/", "host": ["{{baseUrl}}"], "path": ["api","privacy","settings",""] } }
+        },
+        {
+          "name": "Privacy Settings (POST)",
+          "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{access}}" }, { "key": "Content-Type", "value": "application/json" } ], "url": { "raw": "{{baseUrl}}/api/privacy/settings/", "host": ["{{baseUrl}}"], "path": ["api","privacy","settings",""] }, "body": { "mode": "raw", "raw": "{\n  \"share_data_with_third_parties\": false,\n  \"email_notifications\": true\n}" } }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:8000" },
+    { "key": "access", "value": "" },
+    { "key": "refresh", "value": "" }
+  ]
+}

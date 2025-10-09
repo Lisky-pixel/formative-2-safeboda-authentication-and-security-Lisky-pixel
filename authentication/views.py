@@ -22,6 +22,9 @@ from .serializers import (
     JWTRefreshSerializer, UserSerializer, UserRegistrationSerializer
 )
 
+# OpenAPI / Swagger helpers
+from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiResponse
+
 logger = logging.getLogger('security')
 
 
@@ -31,6 +34,21 @@ class BasicAuthenticationView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
+    @extend_schema(
+        auth=[],
+        request=BasicAuthSerializer,
+        examples=[
+            OpenApiExample(
+                'Valid credentials',
+                value={"username": "testuser", "password": "Password123!"},
+                request_only=True,
+            )
+        ],
+        responses={
+            200: OpenApiResponse(description='Authentication successful'),
+            401: OpenApiResponse(description='Invalid credentials')
+        }
+    )
     def post(self, request):
         """Authenticate using basic auth credentials."""
         serializer = BasicAuthSerializer(data=request.data)
@@ -81,6 +99,23 @@ class SessionLoginView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
+    @extend_schema(
+        auth=[],
+        request=SessionLoginSerializer,
+        examples=[
+            OpenApiExample(
+                'Login (no remember me)',
+                value={"username": "testuser", "password": "Password123!", "remember_me": False},
+                request_only=True,
+            ),
+            OpenApiExample(
+                'Login (remember me 7 days)',
+                value={"username": "testuser", "password": "Password123!", "remember_me": True},
+                request_only=True,
+            )
+        ],
+        responses={200: OpenApiResponse(description='Login successful'), 401: OpenApiResponse(description='Invalid credentials')}
+    )
     def post(self, request):
         """Login using session authentication."""
         serializer = SessionLoginSerializer(data=request.data)
@@ -141,6 +176,7 @@ class SessionLogoutView(APIView):
     """
     permission_classes = [permissions.IsAuthenticated]
     
+    @extend_schema(responses={200: OpenApiResponse(description='Logout successful')})
     def post(self, request):
         """Logout user from session."""
         user = request.user
@@ -181,6 +217,18 @@ class JWTTokenView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
+    @extend_schema(
+        auth=[],
+        request=JWTTokenSerializer,
+        examples=[
+            OpenApiExample(
+                'JWT obtain',
+                value={"username": "testuser", "password": "Password123!"},
+                request_only=True,
+            )
+        ],
+        responses={200: OpenApiResponse(description='Tokens returned'), 401: OpenApiResponse(description='Invalid credentials')}
+    )
     def post(self, request):
         """Generate JWT tokens."""
         serializer = JWTTokenSerializer(data=request.data)
@@ -236,6 +284,18 @@ class JWTRefreshView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
+    @extend_schema(
+        auth=[],
+        request=JWTRefreshSerializer,
+        examples=[
+            OpenApiExample(
+                'Refresh token',
+                value={"refresh": "<refresh_token_here>"},
+                request_only=True,
+            )
+        ],
+        responses={200: OpenApiResponse(description='New access token issued'), 401: OpenApiResponse(description='Invalid refresh token')}
+    )
     def post(self, request):
         """Refresh JWT tokens."""
         serializer = JWTRefreshSerializer(data=request.data)
@@ -264,6 +324,7 @@ class JWTVerifyView(APIView):
     """
     permission_classes = [permissions.IsAuthenticated]
     
+    @extend_schema(responses={200: OpenApiResponse(description='Token is valid')})
     def post(self, request):
         """Verify JWT token."""
         return Response({
@@ -272,6 +333,10 @@ class JWTVerifyView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+from drf_spectacular.utils import extend_schema_view
+
+
+@extend_schema_view(get=extend_schema(exclude=True))
 class AuthMethodsView(APIView):
     """
     List available authentication methods.
@@ -313,6 +378,26 @@ class UserRegistrationView(APIView):
     """
     permission_classes = [permissions.AllowAny]
     
+    @extend_schema(
+        auth=[],
+        request=UserRegistrationSerializer,
+        examples=[
+            OpenApiExample(
+                'Register Rwanda user',
+                value={
+                    "username": "rwandauser1",
+                    "email": "rwanda1@example.com",
+                    "phone_number": "+250788000111",
+                    "password": "Password123!",
+                    "password_confirm": "Password123!",
+                    "first_name": "Aline",
+                    "last_name": "Uwase"
+                },
+                request_only=True,
+            )
+        ],
+        responses={201: OpenApiResponse(description='User registered')}
+    )
     def post(self, request):
         """Register new user."""
         serializer = UserRegistrationSerializer(data=request.data)

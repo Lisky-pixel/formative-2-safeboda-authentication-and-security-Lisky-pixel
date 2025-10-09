@@ -8,3 +8,1108 @@ WARNING 2025-10-05 00:27:46,090 log 30764 16468 Not Found: /favicon.ico
 WARNING 2025-10-05 00:27:46,091 basehttp 30764 16468 "GET /favicon.ico HTTP/1.1" 404 2933
 INFO 2025-10-05 00:28:12,554 basehttp 30764 25260 "GET /api/docs/ HTTP/1.1" 200 4469
 INFO 2025-10-05 00:28:12,840 basehttp 30764 25260 "GET /api/schema/ HTTP/1.1" 200 8873
+INFO 2025-10-07 14:11:13,716 autoreload 30884 27276 Watching for file changes with StatReloader
+WARNING 2025-10-07 14:11:27,859 log 30884 24936 Not Found: /
+WARNING 2025-10-07 14:11:27,860 basehttp 30884 24936 "GET / HTTP/1.1" 404 2882
+INFO 2025-10-07 14:11:35,482 basehttp 30884 24936 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-07 14:11:35,909 basehttp 30884 24936 "GET /api/schema/ HTTP/1.1" 200 31761
+ERROR 2025-10-07 14:12:47,616 log 30884 24936 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-07 14:12:47,621 basehttp 30884 24936 "POST /api/auth/basic/ HTTP/1.1" 500 129891
+INFO 2025-10-07 14:14:09,063 autoreload 30884 27276 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\privacy\views.py changed, reloading.
+INFO 2025-10-07 14:14:11,518 autoreload 32160 30708 Watching for file changes with StatReloader
+INFO 2025-10-07 14:16:19,726 autoreload 32160 30708 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-07 14:16:21,862 autoreload 29844 27824 Watching for file changes with StatReloader
+INFO 2025-10-07 14:16:34,147 autoreload 29844 27824 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-07 14:16:35,763 autoreload 1812 27344 Watching for file changes with StatReloader
+INFO 2025-10-07 14:17:03,535 autoreload 27348 28592 Watching for file changes with StatReloader
+INFO 2025-10-07 14:17:19,323 basehttp 27348 24296 "GET /api/schema HTTP/1.1" 301 0
+INFO 2025-10-07 14:17:19,443 basehttp 27348 11584 "GET /api/schema/ HTTP/1.1" 200 19266
+INFO 2025-10-07 14:17:28,777 basehttp 27348 11584 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-07 14:17:28,996 basehttp 27348 11584 "GET /api/schema/ HTTP/1.1" 200 42862
+ERROR 2025-10-07 14:18:33,997 log 27348 11584 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-07 14:18:33,997 basehttp 27348 11584 "POST /api/auth/basic/ HTTP/1.1" 500 23550
+ERROR 2025-10-07 14:19:10,476 log 27348 11584 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-07 14:19:10,476 basehttp 27348 11584 "POST /api/auth/basic/ HTTP/1.1" 500 23550
+INFO 2025-10-08 12:16:53,361 autoreload 2496 9852 Watching for file changes with StatReloader
+INFO 2025-10-08 12:17:00,850 basehttp 2496 31784 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 12:17:02,167 basehttp 2496 31784 "GET /api/schema/ HTTP/1.1" 200 31761
+ERROR 2025-10-08 12:19:20,274 log 2496 26300 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:19:20,281 basehttp 2496 26300 "POST /api/auth/basic/ HTTP/1.1" 500 129891
+INFO 2025-10-08 12:21:27,972 autoreload 2496 9852 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\privacy\models.py changed, reloading.
+INFO 2025-10-08 12:21:31,144 autoreload 17412 23048 Watching for file changes with StatReloader
+INFO 2025-10-08 12:23:12,671 autoreload 17412 23048 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:23:14,796 autoreload 32460 33632 Watching for file changes with StatReloader
+INFO 2025-10-08 12:23:26,000 autoreload 32460 33632 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:23:28,420 autoreload 32732 10432 Watching for file changes with StatReloader
+INFO 2025-10-08 12:23:42,636 autoreload 32732 10432 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:23:44,710 autoreload 1812 33240 Watching for file changes with StatReloader
+INFO 2025-10-08 12:23:47,355 autoreload 1812 33240 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:23:49,712 autoreload 4892 33560 Watching for file changes with StatReloader
+INFO 2025-10-08 12:23:59,493 autoreload 4892 33560 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:24:01,300 autoreload 26864 32804 Watching for file changes with StatReloader
+INFO 2025-10-08 12:24:27,572 autoreload 25740 31928 Watching for file changes with StatReloader
+INFO 2025-10-08 12:24:36,530 basehttp 25740 12840 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 12:24:36,772 basehttp 25740 12840 "GET /api/schema/ HTTP/1.1" 200 43369
+ERROR 2025-10-08 12:24:59,540 log 25740 12840 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:24:59,544 basehttp 25740 12840 "POST /api/auth/basic/ HTTP/1.1" 500 23550
+INFO 2025-10-08 12:26:24,155 autoreload 25740 31928 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\privacy\views.py changed, reloading.
+INFO 2025-10-08 12:26:26,676 autoreload 22592 26052 Watching for file changes with StatReloader
+INFO 2025-10-08 12:26:32,290 basehttp 22592 6104 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 12:26:32,659 basehttp 22592 6104 "GET /api/schema/ HTTP/1.1" 200 31761
+ERROR 2025-10-08 12:26:46,499 log 22592 6104 Internal Server Error: /api/auth/jwt/verify/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:26:46,513 basehttp 22592 6104 "POST /api/auth/jwt/verify/ HTTP/1.1" 500 130001
+INFO 2025-10-08 12:43:50,002 autoreload 31756 10308 Watching for file changes with StatReloader
+INFO 2025-10-08 12:44:01,198 basehttp 31756 33752 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 12:44:01,580 basehttp 31756 33752 "GET /api/schema/ HTTP/1.1" 200 31761
+ERROR 2025-10-08 12:44:55,746 log 31756 33752 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:44:55,751 basehttp 31756 33752 "POST /api/auth/basic/ HTTP/1.1" 500 130053
+ERROR 2025-10-08 12:49:48,056 log 31756 33752 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:49:48,059 basehttp 31756 33752 "POST /api/auth/basic/ HTTP/1.1" 500 130053
+ERROR 2025-10-08 12:49:51,594 log 31756 33752 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 12:49:51,598 basehttp 31756 33752 "POST /api/auth/basic/ HTTP/1.1" 500 130053
+INFO 2025-10-08 12:58:58,146 autoreload 31756 10308 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:59:00,898 autoreload 22244 24844 Watching for file changes with StatReloader
+INFO 2025-10-08 12:59:13,315 autoreload 22244 24844 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 12:59:15,602 autoreload 3948 21584 Watching for file changes with StatReloader
+INFO 2025-10-08 12:59:36,440 basehttp 3948 27792 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 12:59:36,866 basehttp 3948 27792 "GET /api/schema/ HTTP/1.1" 200 43579
+ERROR 2025-10-08 13:05:20,719 log 3948 32628 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:05:20,731 basehttp 3948 32628 "POST /api/auth/basic/ HTTP/1.1" 500 129898
+ERROR 2025-10-08 13:05:54,204 log 3948 32628 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:05:54,204 basehttp 3948 32628 "POST /api/auth/register/ HTTP/1.1" 500 129968
+ERROR 2025-10-08 13:06:28,508 log 3948 32628 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:06:28,508 basehttp 3948 32628 "POST /api/auth/register/ HTTP/1.1" 500 129968
+INFO 2025-10-08 13:12:18,408 basehttp 3948 8624 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:12:18,848 basehttp 3948 8624 "GET /api/schema/ HTTP/1.1" 200 43579
+ERROR 2025-10-08 13:12:31,635 log 3948 8624 Internal Server Error: /api/auth/jwt-token/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:12:31,637 basehttp 3948 8624 "POST /api/auth/jwt-token/ HTTP/1.1" 500 129983
+ERROR 2025-10-08 13:13:07,745 log 3948 8624 Internal Server Error: /api/auth/basic/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:13:07,749 basehttp 3948 8624 "POST /api/auth/basic/ HTTP/1.1" 500 129898
+INFO 2025-10-08 13:14:01,729 autoreload 11148 29192 Watching for file changes with StatReloader
+INFO 2025-10-08 13:14:08,368 basehttp 11148 29724 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:14:08,684 basehttp 11148 29724 "GET /api/schema/ HTTP/1.1" 200 43579
+ERROR 2025-10-08 13:14:24,045 log 11148 29724 Internal Server Error: /api/auth/jwt-token/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:14:24,055 basehttp 11148 29724 "POST /api/auth/jwt-token/ HTTP/1.1" 500 129983
+ERROR 2025-10-08 13:16:26,166 log 11148 29724 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:16:26,166 basehttp 11148 29724 "POST /api/auth/register/ HTTP/1.1" 500 129968
+INFO 2025-10-08 13:20:51,676 autoreload 11148 29192 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 13:20:52,674 autoreload 27996 30888 Watching for file changes with StatReloader
+INFO 2025-10-08 13:21:19,402 autoreload 27996 30888 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 13:21:20,397 autoreload 7668 33592 Watching for file changes with StatReloader
+INFO 2025-10-08 13:23:02,011 autoreload 22416 32700 Watching for file changes with StatReloader
+INFO 2025-10-08 13:23:08,577 basehttp 22416 23612 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:23:08,830 basehttp 22416 23612 "GET /api/schema/ HTTP/1.1" 200 41949
+ERROR 2025-10-08 13:25:54,376 log 22416 23612 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:25:54,376 basehttp 22416 23612 "POST /api/auth/register/ HTTP/1.1" 500 129968
+ERROR 2025-10-08 13:28:21,593 log 22416 23612 Internal Server Error: /api/auth/session/login/
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: cache_table
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 32, in process_request
+    if self.is_rate_limited(client_ip, request.path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\common\middleware.py", line 71, in is_rate_limited
+    attempts = cache.get(cache_key, 0)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 52, in get
+    return self.get_many([key], version).get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\core\cache\backends\db.py", line 68, in get_many
+    cursor.execute(
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\venv_new\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: cache_table
+ERROR 2025-10-08 13:28:21,593 basehttp 22416 23612 "POST /api/auth/session/login/ HTTP/1.1" 500 130083
+INFO 2025-10-08 13:29:46,263 autoreload 22416 32700 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 13:29:47,009 autoreload 5884 6684 Watching for file changes with StatReloader
+WARNING 2025-10-08 13:31:38,166 log 5884 20240 Bad Request: /api/auth/register/
+WARNING 2025-10-08 13:31:38,167 basehttp 5884 20240 "POST /api/auth/register/ HTTP/1.1" 400 58
+WARNING 2025-10-08 13:31:39,206 log 5884 20240 Bad Request: /api/auth/register/
+WARNING 2025-10-08 13:31:39,207 basehttp 5884 20240 "POST /api/auth/register/ HTTP/1.1" 400 58
+WARNING 2025-10-08 13:31:51,581 log 5884 20240 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 13:31:51,581 basehttp 5884 20240 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+WARNING 2025-10-08 13:32:31,195 log 5884 20240 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 13:32:31,195 basehttp 5884 20240 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+INFO 2025-10-08 13:32:55,419 basehttp 5884 20240 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:32:55,672 basehttp 5884 20240 "GET /api/schema/ HTTP/1.1" 200 41949
+INFO 2025-10-08 13:33:10,426 basehttp 5884 20240 "POST /api/auth/register/ HTTP/1.1" 201 336
+WARNING 2025-10-08 13:33:20,412 log 5884 20240 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 13:33:20,412 basehttp 5884 20240 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+WARNING 2025-10-08 13:34:09,930 log 5884 20240 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 13:34:09,930 basehttp 5884 20240 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+WARNING 2025-10-08 13:34:57,579 log 5884 20240 Unauthorized: /api/auth/basic/
+WARNING 2025-10-08 13:34:57,579 basehttp 5884 20240 "POST /api/auth/basic/ HTTP/1.1" 401 45
+INFO 2025-10-08 13:38:14,141 autoreload 13716 32728 Watching for file changes with StatReloader
+INFO 2025-10-08 13:38:19,833 basehttp 13716 7216 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:38:19,992 basehttp 13716 7216 "GET /api/schema/ HTTP/1.1" 200 41949
+INFO 2025-10-08 13:38:52,900 basehttp 13716 7216 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:38:53,014 basehttp 13716 7216 "GET /api/schema/ HTTP/1.1" 200 41949
+INFO 2025-10-08 13:41:17,530 autoreload 13716 32728 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 13:41:18,429 autoreload 24336 29972 Watching for file changes with StatReloader
+INFO 2025-10-08 13:41:36,369 autoreload 24336 29972 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-08 13:41:37,416 autoreload 25532 33608 Watching for file changes with StatReloader
+INFO 2025-10-08 13:43:54,749 autoreload 2252 24396 Watching for file changes with StatReloader
+INFO 2025-10-08 13:44:01,605 basehttp 2252 25684 "GET /api/docs/ HTTP/1.1" 200 4469
+INFO 2025-10-08 13:44:01,989 basehttp 2252 25684 "GET /api/schema/ HTTP/1.1" 200 41187
+WARNING 2025-10-08 13:44:24,228 log 2252 25684 Bad Request: /api/auth/register/
+WARNING 2025-10-08 13:44:24,228 basehttp 2252 25684 "POST /api/auth/register/ HTTP/1.1" 400 121
+WARNING 2025-10-08 13:44:24,936 log 2252 25684 Bad Request: /api/auth/register/
+WARNING 2025-10-08 13:44:24,945 basehttp 2252 25684 "POST /api/auth/register/ HTTP/1.1" 400 121
+WARNING 2025-10-08 13:44:51,704 log 2252 25684 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 13:44:51,704 basehttp 2252 25684 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+INFO 2025-10-08 13:57:31,101 basehttp 2252 27960 "POST /api/auth/register/ HTTP/1.1" 201 342
+INFO 2025-10-08 13:57:31,652 basehttp 2252 27960 "POST /api/auth/session/login/ HTTP/1.1" 200 355
+INFO 2025-10-08 13:57:32,185 basehttp 2252 27960 "POST /api/auth/jwt-token/ HTTP/1.1" 200 907
+INFO 2025-10-08 13:57:32,202 basehttp 2252 27960 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 353
+INFO 2025-10-08 13:57:32,236 basehttp 2252 27960 "GET /api/privacy/data-export/ HTTP/1.1" 200 781
+INFO 2025-10-08 13:57:32,305 basehttp 2252 27960 - Broken pipe from ('127.0.0.1', 52649)
+INFO 2025-10-08 15:31:04,572 autoreload 12812 9644 Watching for file changes with StatReloader
+WARNING 2025-10-08 15:31:11,610 log 12812 33768 Bad Request: /api/auth/register/
+WARNING 2025-10-08 15:31:11,610 basehttp 12812 33768 "POST /api/auth/register/ HTTP/1.1" 400 64
+INFO 2025-10-08 15:31:23,167 basehttp 12812 33768 "POST /api/auth/register/ HTTP/1.1" 201 331
+INFO 2025-10-08 15:31:50,186 basehttp 12812 33768 "POST /api/auth/session/login/ HTTP/1.1" 200 344
+WARNING 2025-10-08 15:32:04,761 log 12812 33768 Forbidden: /api/auth/jwt-token/
+WARNING 2025-10-08 15:32:04,770 basehttp 12812 33768 "POST /api/auth/jwt-token/ HTTP/1.1" 403 45
+WARNING 2025-10-08 15:38:28,378 log 12812 31140 Forbidden: /api/auth/session/logout/
+WARNING 2025-10-08 15:38:28,378 basehttp 12812 31140 "POST /api/auth/session/logout/ HTTP/1.1" 403 45
+WARNING 2025-10-08 15:38:51,591 log 12812 28540 Unauthorized: /api/auth/session/login/
+WARNING 2025-10-08 15:38:51,591 basehttp 12812 28540 "POST /api/auth/session/login/ HTTP/1.1" 401 45
+WARNING 2025-10-08 15:38:59,719 log 12812 28540 Bad Request: /api/auth/register/
+WARNING 2025-10-08 15:38:59,719 basehttp 12812 28540 "POST /api/auth/register/ HTTP/1.1" 400 64
+WARNING 2025-10-08 15:39:27,611 log 12812 31140 Forbidden: /api/auth/jwt-token/
+WARNING 2025-10-08 15:39:27,611 basehttp 12812 31140 "POST /api/auth/jwt-token/ HTTP/1.1" 403 45
+WARNING 2025-10-08 15:39:41,454 log 12812 31140 Unauthorized: /api/auth/jwt/verify/
+WARNING 2025-10-08 15:39:41,454 basehttp 12812 31140 "POST /api/auth/jwt/verify/ HTTP/1.1" 401 183
+WARNING 2025-10-08 15:40:07,026 log 12812 31140 Forbidden: /api/auth/jwt/refresh/
+WARNING 2025-10-08 15:40:07,026 basehttp 12812 31140 "POST /api/auth/jwt/refresh/ HTTP/1.1" 403 45
+WARNING 2025-10-08 15:40:27,926 log 12812 31140 Forbidden: /api/uas/verify-phone/
+WARNING 2025-10-08 15:40:27,926 basehttp 12812 31140 "POST /api/uas/verify-phone/ HTTP/1.1" 403 45
+WARNING 2025-10-08 15:40:45,791 log 12812 31140 Forbidden: /api/uas/verify-phone/confirm/
+WARNING 2025-10-08 15:40:45,791 basehttp 12812 31140 "POST /api/uas/verify-phone/confirm/ HTTP/1.1" 403 45
+INFO 2025-10-09 12:22:48,316 autoreload 12812 9644 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\rbac\models.py changed, reloading.
+INFO 2025-10-09 12:22:51,435 autoreload 39336 33380 Watching for file changes with StatReloader
+INFO 2025-10-09 12:27:56,219 basehttp 39336 34212 "POST /api/auth/register/ HTTP/1.1" 201 334
+INFO 2025-10-09 12:27:57,100 basehttp 39336 34212 "POST /api/auth/session/login/ HTTP/1.1" 200 347
+INFO 2025-10-09 12:27:57,981 basehttp 39336 34212 "POST /api/auth/jwt-token/ HTTP/1.1" 200 899
+INFO 2025-10-09 12:27:58,037 basehttp 39336 34212 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 345
+INFO 2025-10-09 12:27:58,071 basehttp 39336 34212 "POST /api/auth/jwt/refresh/ HTTP/1.1" 200 582
+INFO 2025-10-09 12:27:58,091 basehttp 39336 34212 "GET /api/uas/districts/ HTTP/1.1" 200 2546
+WARNING 2025-10-09 12:27:58,120 log 39336 34212 Unauthorized: /api/uas/account/status/
+WARNING 2025-10-09 12:27:58,120 basehttp 39336 34212 "GET /api/uas/account/status/ HTTP/1.1" 401 58
+INFO 2025-10-09 12:27:58,533 basehttp 39336 34212 - Broken pipe from ('127.0.0.1', 60661)
+WARNING 2025-10-09 12:28:47,985 log 39336 2596 Bad Request: /api/auth/register/
+WARNING 2025-10-09 12:28:47,985 basehttp 39336 2596 "POST /api/auth/register/ HTTP/1.1" 400 64
+INFO 2025-10-09 12:28:48,150 basehttp 39336 2596 - Broken pipe from ('127.0.0.1', 60735)
+INFO 2025-10-09 12:29:32,677 basehttp 39336 8140 "POST /api/auth/register/ HTTP/1.1" 201 334
+INFO 2025-10-09 12:29:33,630 basehttp 39336 8140 "POST /api/auth/session/login/ HTTP/1.1" 200 347
+INFO 2025-10-09 12:29:34,529 basehttp 39336 8140 "POST /api/auth/jwt-token/ HTTP/1.1" 200 899
+INFO 2025-10-09 12:29:34,569 basehttp 39336 8140 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 345
+INFO 2025-10-09 12:29:34,606 basehttp 39336 8140 "POST /api/auth/jwt/refresh/ HTTP/1.1" 200 582
+INFO 2025-10-09 12:29:34,617 basehttp 39336 8140 "GET /api/uas/districts/ HTTP/1.1" 200 2546
+INFO 2025-10-09 12:29:34,649 basehttp 39336 8140 "GET /api/uas/account/status/ HTTP/1.1" 200 323
+WARNING 2025-10-09 12:29:34,649 log 39336 8140 Unauthorized: /api/uas/verify-phone/
+WARNING 2025-10-09 12:29:34,649 basehttp 39336 8140 "POST /api/uas/verify-phone/ HTTP/1.1" 401 58
+INFO 2025-10-09 12:29:34,851 basehttp 39336 8140 - Broken pipe from ('127.0.0.1', 60775)
+INFO 2025-10-09 12:32:23,515 basehttp 39336 33596 "POST /api/auth/register/ HTTP/1.1" 201 334
+INFO 2025-10-09 12:32:24,325 basehttp 39336 33596 "POST /api/auth/session/login/ HTTP/1.1" 200 347
+INFO 2025-10-09 12:32:25,144 basehttp 39336 33596 "POST /api/auth/jwt-token/ HTTP/1.1" 200 899
+INFO 2025-10-09 12:32:25,175 basehttp 39336 33596 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 345
+INFO 2025-10-09 12:32:25,214 basehttp 39336 33596 "POST /api/auth/jwt/refresh/ HTTP/1.1" 200 582
+INFO 2025-10-09 12:32:25,230 basehttp 39336 33596 "GET /api/uas/districts/ HTTP/1.1" 200 2546
+INFO 2025-10-09 12:32:25,255 basehttp 39336 33596 "GET /api/uas/account/status/ HTTP/1.1" 200 323
+WARNING 2025-10-09 12:32:25,263 log 39336 33596 Unauthorized: /api/uas/verify-phone/
+WARNING 2025-10-09 12:32:25,263 basehttp 39336 33596 "POST /api/uas/verify-phone/ HTTP/1.1" 401 58
+INFO 2025-10-09 12:32:25,449 basehttp 39336 33596 - Broken pipe from ('127.0.0.1', 60928)
+INFO 2025-10-09 12:33:36,797 basehttp 39336 10376 "POST /api/auth/register/ HTTP/1.1" 201 334
+INFO 2025-10-09 12:33:37,804 basehttp 39336 10376 "POST /api/auth/session/login/ HTTP/1.1" 200 347
+INFO 2025-10-09 12:33:38,621 basehttp 39336 10376 "POST /api/auth/jwt-token/ HTTP/1.1" 200 899
+INFO 2025-10-09 12:33:38,657 basehttp 39336 10376 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 345
+INFO 2025-10-09 12:33:38,695 basehttp 39336 10376 "POST /api/auth/jwt/refresh/ HTTP/1.1" 200 582
+INFO 2025-10-09 12:33:38,707 basehttp 39336 10376 "GET /api/uas/districts/ HTTP/1.1" 200 2546
+INFO 2025-10-09 12:33:38,731 basehttp 39336 10376 "GET /api/uas/account/status/ HTTP/1.1" 200 323
+INFO 2025-10-09 12:33:38,779 basehttp 39336 10376 "POST /api/uas/verify-phone/ HTTP/1.1" 200 99
+INFO 2025-10-09 12:33:38,859 basehttp 39336 10376 "GET /api/privacy/data-export/ HTTP/1.1" 200 773
+INFO 2025-10-09 12:33:38,885 basehttp 39336 10376 "GET /api/privacy/consent/ HTTP/1.1" 200 1509
+WARNING 2025-10-09 12:33:38,901 log 39336 10376 Bad Request: /api/privacy/consent/
+WARNING 2025-10-09 12:33:38,901 basehttp 39336 10376 "POST /api/privacy/consent/ HTTP/1.1" 400 84
+INFO 2025-10-09 12:33:39,079 basehttp 39336 10376 - Broken pipe from ('127.0.0.1', 61131)
+INFO 2025-10-09 12:34:49,564 basehttp 39336 37964 "POST /api/auth/register/ HTTP/1.1" 201 334
+INFO 2025-10-09 12:34:50,390 basehttp 39336 37964 "POST /api/auth/session/login/ HTTP/1.1" 200 347
+INFO 2025-10-09 12:34:51,159 basehttp 39336 37964 "POST /api/auth/jwt-token/ HTTP/1.1" 200 899
+INFO 2025-10-09 12:34:51,197 basehttp 39336 37964 "POST /api/auth/jwt/verify/ HTTP/1.1" 200 345
+INFO 2025-10-09 12:34:51,224 basehttp 39336 37964 "POST /api/auth/jwt/refresh/ HTTP/1.1" 200 582
+INFO 2025-10-09 12:34:51,239 basehttp 39336 37964 "GET /api/uas/districts/ HTTP/1.1" 200 2546
+INFO 2025-10-09 12:34:51,270 basehttp 39336 37964 "GET /api/uas/account/status/ HTTP/1.1" 200 323
+INFO 2025-10-09 12:34:51,302 basehttp 39336 37964 "POST /api/uas/verify-phone/ HTTP/1.1" 200 99
+INFO 2025-10-09 12:34:51,351 basehttp 39336 37964 "GET /api/privacy/data-export/ HTTP/1.1" 200 773
+INFO 2025-10-09 12:34:51,378 basehttp 39336 37964 "GET /api/privacy/consent/ HTTP/1.1" 200 1509
+WARNING 2025-10-09 12:34:51,386 log 39336 37964 Bad Request: /api/privacy/consent/
+WARNING 2025-10-09 12:34:51,398 basehttp 39336 37964 "POST /api/privacy/consent/ HTTP/1.1" 400 46
+INFO 2025-10-09 12:34:51,599 basehttp 39336 37964 - Broken pipe from ('127.0.0.1', 61309)
+INFO 2025-10-09 12:35:52,490 autoreload 39336 33380 C:\Users\DELL\Desktop\formative-2-safeboda-authentication-and-security-Lisky-pixel\authentication\views.py changed, reloading.
+INFO 2025-10-09 12:35:54,586 autoreload 35120 37600 Watching for file changes with StatReloader

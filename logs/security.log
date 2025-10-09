@@ -1,0 +1,8 @@
+SECURITY: WARNING 2025-10-08 13:31:51,581 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 13:32:31,195 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 13:33:20,412 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 13:34:09,930 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 13:34:57,579 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/basic/
+SECURITY: WARNING 2025-10-08 13:44:51,704 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 15:38:51,591 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/session/login/
+SECURITY: WARNING 2025-10-08 15:39:41,454 middleware Failed authentication attempt from IP 127.0.0.1 on /api/auth/jwt/verify/
